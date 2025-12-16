@@ -1,6 +1,6 @@
 # Criterion (C) — Mini Tutorial (WSL/Ubuntu)
 
-Este mini tutorial documenta como eu instalei o Criterion, organizei um projeto simples (Calculator) e compilei/executei os testes, incluindo geração de relatórios (TAP/XML/JSON) e uso de skip via variável de ambiente. Video: https://docs.google.com/videos/d/1dnD1dRp6vk49kTWrDcsDycORk5m548Ral1faI1PQ-X8/edit?usp=classroom_web&authuser=0
+Este mini tutorial documenta como eu instalei o Criterion, organizei um projeto simples (Calculator) e compilei/executei os testes, incluindo geração de relatórios (TAP/XML/JSON) e uso de skip via variável de ambiente.
 
 ## Estrutura do Projeto
 
@@ -171,3 +171,5 @@ SANITY_ONLY=1 ./run_tests
 
 Exemplo (no meu teste parametrizado) de como eu “pulo” quando `sanityOnly` está ativo.  
 Também existe um exemplo de `cr_skip(...)` direto dentro de um teste (sem condição), útil para desabilitar temporariamente um caso.
+
+Video: https://docs.google.com/videos/d/1dnD1dRp6vk49kTWrDcsDycORk5m548Ral1faI1PQ-X8/edit?usp=classroom_web&authuser=0
