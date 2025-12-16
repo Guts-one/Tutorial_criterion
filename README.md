@@ -19,6 +19,45 @@ O SUT (System Under Test) expõe as funções no header `calculator.h` (addition
 A implementação fica em `calculator.c`.  
 A suíte de testes fica em `tests/test_calculator_n.c` e usa a nova API de asserts e testes parametrizados.
 
+---
+
+## Precisão numérica e IEEE 754 (ponto flutuante)
+
+As funções desta calculadora operam com `double`. Em C, esse tipo normalmente segue o padrão **IEEE 754**, o que implica que:
+- Nem todo decimal é representável exatamente (ex.: `0.1`), então pequenas diferenças por arredondamento são esperadas.
+- Comparações diretas com `==` podem falhar mesmo quando o resultado está correto do ponto de vista numérico.
+
+Por esse motivo, **todos os testes que verificam resultados em ponto flutuante foram escritos usando as macros de comparação IEEE do Criterion**, em vez de igualdade exata. Em especial:
+
+- **Comparação por ULP** (`ieee_ulp_eq(...)`): compara valores considerando a distância em *Units in the Last Place* (passos representáveis do IEEE 754).  
+  Essa abordagem é adequada para resultados de operações aritméticas que podem sofrer variações mínimas de arredondamento.
+- **Comparação por epsilon** (`epsilon_eq(...)`): compara valores com base em tolerância absoluta (`epsilon`).  
+  É particularmente útil para resultados próximos de zero ou quando se deseja estabelecer explicitamente um erro máximo aceitável.
+
+Com isso, a suíte de testes permanece **robusta** e **estável**, mesmo em cenários típicos de ponto flutuante onde o arredondamento é inevitável.
+
+---
+
+## Testes realizados
+
+Os testes estão implementados no arquivo de testes do projeto (ex.: `tests/test_calculator_n.c`) e cobrem as operações da calculadora, **sempre validando resultados com asserts compatíveis com IEEE 754**:
+
+### Casos cobertos
+- **Adição (`addition`)**
+  - Casos com valores simples e casos com casas decimais, validados com `ieee_ulp_eq(...)` e/ou `epsilon_eq(...)`.
+- **Subtração (`subtraction`)**
+  - Casos gerais e casos com resultado próximo de zero, validados com `epsilon_eq(...)` e/ou `ieee_ulp_eq(...)`.
+- **Multiplicação (`multiplication`)** *(se presente no SUT)*
+  - Casos gerais com validação IEEE (`ieee_ulp_eq(...)` e/ou `epsilon_eq(...)`).
+- **Divisão (`division`)** *(se presente no SUT)*
+  - Casos gerais com validação IEEE (`ieee_ulp_eq(...)` e/ou `epsilon_eq(...)`).
+
+### Observação sobre resultados “exatos”
+Mesmo quando um resultado poderia ser comparado por igualdade exata (ex.: `2.0 + 2.0 = 4.0`), a suíte mantém o padrão e utiliza as comparações IEEE do Criterion de forma consistente, garantindo uniformidade e evitando dependência de detalhes de representação.
+
+---
+
+
 ## Instalação do Criterion
 
 ### Primeira Instalação (WSL)
