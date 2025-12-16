@@ -14,20 +14,20 @@ static void load_flags(void) {
     sanityOnly = (v && v[0] == '1');
 }
 
-TestSuite(Calculator, .init = load_flags);  //fixture
+TestSuite(Calculator, .init = load_flags);  //fixture parasanityOnly
 
 
 Test(Calculator, test_addition2) {
     cr_skip("Duplicado!");
-    cr_assert(ieee_ulp_eq(dbl, addition(2.00001, 3), 5, 4));
+    cr_assert(ieee_ulp_eq(dbl, addition(2.00001, 3), 5, 4)); // cr_assert(Criterion, Format, ...) nesse caso Criterion=ieee_ulp_eq(dbl, addition(2.00001, 3), 5, 4)
 }
 
 Test(Calculator, test_subtraction_near_zero){
-    cr_assert(epsilon_eq(dbl, subtraction(1, 1), 0.0, 16*DBL_EPSILON)); //IEEE 754
+    cr_assert(epsilon_eq(dbl, subtraction(1, 1), 0.0, 16*DBL_EPSILON)); //IEEE 754 valor perto de zero e com Epsilon=16*DBL_EPSILON: epsilon_eq(Tag, Actual, Expected, Epsilon) 
 }
 
 Test(Calculator, test_multiplication){
-    cr_assert(ieee_ulp_eq(dbl, multiplication(3, 5), 15, 4)); //IEEE 754
+    cr_assert(ieee_ulp_eq(dbl, multiplication(3, 5), 15, 4)); //IEEE 754 valor longe de zero e com o paramentro Ulp=4: ieee_ulp_eq(Tag, Actual, Expected, Ulp) 
 }
 
 Test(Calculator, test_power){
