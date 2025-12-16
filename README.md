@@ -36,6 +36,9 @@ Por esse motivo, **todos os testes que verificam resultados em ponto flutuante f
 
 Com isso, a suíte de testes permanece **robusta** e **estável**, mesmo em cenários típicos de ponto flutuante onde o arredondamento é inevitável.
 
+[Referência -assertion](https://criterion.readthedocs.io/en/master/assert.html)
+
+
 ---
 
 ## Testes realizados
