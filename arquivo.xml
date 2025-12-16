@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Tests compiled with Criterion v2.4.1 -->
+<testsuites name="Criterion Tests" tests="11" failures="1" errors="0" disabled="0">
+  <testsuite name="Calculator" tests="11" failures="1" errors="0" disabled="0" skipped="0" time="0.009">
+    <testcase name="test_subtraction_near_zero" assertions="0" status="PASSED" time="0.000">
+    </testcase>
+    <testcase name="test_multiplication" assertions="0" status="PASSED" time="0.000">
+    </testcase>
+    <testcase name="test_multipli_paramet" assertions="0" status="PASSED" time="0.000">
+    </testcase>
+    <testcase name="test_multipli_paramet" assertions="0" status="PASSED" time="0.001">
+    </testcase>
+    <testcase name="test_multipli_paramet" assertions="0" status="PASSED" time="0.001">
+    </testcase>
+    <testcase name="test_multipli_paramet" assertions="0" status="PASSED" time="0.001">
+    </testcase>
+    <testcase name="test_multipli_paramet" assertions="0" status="PASSED" time="0.001">
+    </testcase>
+    <testcase name="test_division_indet" assertions="0" status="PASSED" time="0.001">
+    </testcase>
+    <testcase name="test_division_exact" assertions="0" status="PASSED" time="0.001">
+    </testcase>
+    <testcase name="test_division_byzero" assertions="0" status="PASSED" time="0.001">
+    </testcase>
+    <testcase name="test_addition2" assertions="1" status="FAILED" time="0.001">
+      <failure type="assert" message="1 assertion(s) failed."><![CDATA[tests/test_calculator_n.c:21: ]]>&#10;</failure>
+    </testcase>
+  </testsuite>
+</testsuites>
