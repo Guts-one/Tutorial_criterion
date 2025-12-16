@@ -21,7 +21,7 @@ A suíte de testes fica em `tests/test_calculator_n.c` e usa a nova API de asser
 
 ## Instalação do Criterion
 
-### Primeira Instalação (no WSL)
+### Primeira Instalação (WSL)
 
 ```
 sudo apt update
@@ -71,6 +71,26 @@ gcc -Wall -Wextra -std=c11 \
 
 ```
 ./run_tests
+```
+
+## Opções úteis de execução
+
+### Verbose
+
+```
+./run_tests --verbose
+```
+
+### Falhar ao primeiro teste que falhar (fail-fast)
+
+```
+./run_tests -f
+```
+
+### Help / opções rápidas
+
+```
+./run_tests -h
 ```
 
 ## Geração de Relatórios (Reports)
