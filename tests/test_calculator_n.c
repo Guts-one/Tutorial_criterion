@@ -30,6 +30,10 @@ Test(Calculator, test_multiplication){
     cr_assert(ieee_ulp_eq(dbl, multiplication(3, 5), 15, 4)); //IEEE 754
 }
 
+Test(Calculator, test_power){
+    cr_assert(ieee_ulp_eq(dbl, power(2, 3), 8, 4)); //IEEE 754
+}
+
 Test(Calculator, test_division_exact){
     cr_assert(ieee_ulp_eq(dbl, division(10, 2), 5, 4));
 }
