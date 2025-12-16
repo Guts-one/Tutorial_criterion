@@ -52,7 +52,8 @@ Os testes estão implementados no arquivo de testes do projeto (ex.: `tests/test
   - Casos gerais e casos com resultado próximo de zero, validados com `epsilon_eq(...)` e/ou `ieee_ulp_eq(...)`.
 - **Multiplicação (`multiplication`)** 
   - Casos gerais com validação IEEE (`ieee_ulp_eq(...)`).
-  - Caso com parametrização dado um grupo de valores para validação IEEE (`ieee_ulp_eq(...)`).
+  - Caso com parametrização dado um grupo de valores para validação IEEE (`ieee_ulp_eq(...)`). [Ref - parametrização](https://criterion.readthedocs.io/en/master/parameterized.html)
+
 - **Divisão (`division`)** 
   - Casos gerais com validação IEEE (`ieee_ulp_eq(...)`).
   - Casos em que a divisão é por zero (`isinf(...)`)
