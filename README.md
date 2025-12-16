@@ -47,10 +47,13 @@ Os testes estão implementados no arquivo de testes do projeto (ex.: `tests/test
   - Casos com valores simples e casos com casas decimais, validados com `ieee_ulp_eq(...)` e/ou `epsilon_eq(...)`.
 - **Subtração (`subtraction`)**
   - Casos gerais e casos com resultado próximo de zero, validados com `epsilon_eq(...)` e/ou `ieee_ulp_eq(...)`.
-- **Multiplicação (`multiplication`)** *(se presente no SUT)*
-  - Casos gerais com validação IEEE (`ieee_ulp_eq(...)` e/ou `epsilon_eq(...)`).
-- **Divisão (`division`)** *(se presente no SUT)*
-  - Casos gerais com validação IEEE (`ieee_ulp_eq(...)` e/ou `epsilon_eq(...)`).
+- **Multiplicação (`multiplication`)** 
+  - Casos gerais com validação IEEE (`ieee_ulp_eq(...)`).
+  - Caso com parametrização dado um grupo de valores para validação IEEE (`ieee_ulp_eq(...)`).
+- **Divisão (`division`)** 
+  - Casos gerais com validação IEEE (`ieee_ulp_eq(...)`).
+  - Casos em que a divisão é por zero (`isinf(...)`)
+  - Casos em que a divisão gera um valor indeterminado NaN (`isnan(...)`)
 
 ### Observação sobre resultados “exatos”
 Mesmo quando um resultado poderia ser comparado por igualdade exata (ex.: `2.0 + 2.0 = 4.0`), a suíte mantém o padrão e utiliza as comparações IEEE do Criterion de forma consistente, garantindo uniformidade e evitando dependência de detalhes de representação.
