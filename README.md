@@ -1,6 +1,6 @@
 # Criterion (C) — Mini Tutorial (WSL/Ubuntu)
 
-Este mini tutorial documenta como eu instalei o Criterion, organizei um projeto simples (Calculator) e compilei/executei os testes, incluindo geração de relatórios (TAP/XML/JSON) e uso de skip via variável de ambiente.
+Este mini tutorial documenta como eu instalei o Criterion, organizei um projeto simples (Calculator) e compilei/executei os testes, incluindo geração de relatórios (TAP/XML/JSON) e uso de skip via variável de ambiente. Video: https://docs.google.com/videos/d/1dnD1dRp6vk49kTWrDcsDycORk5m548Ral1faI1PQ-X8/edit?usp=classroom_web&authuser=0
 
 ## Estrutura do Projeto
 
